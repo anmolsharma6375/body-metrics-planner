@@ -1,1 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fitness Forge</title>
+    <link rel="icon" type="image/png" href="favicon-96x96.png">
+</head>
+  <body>
+    <body>
+    <div class="particles" id="particles"></div>
+
+    <div class="container">
+        <div class="floating-card">
+            <h1>FitnessForge</h1>
+            <p class="subtitle">Your Smart Weight Analyzer</p>
+
+            <div class="input-group">
+                <input type="number" class="input-field" id="age" min="1" max="120" placeholder=" ">
+                <label>Age (years)</label>
+            </div>
+
+            <div class="input-group">
+                <input type="number" class="input-field" id="height" min="50" max="250" placeholder=" ">
+                <label>Height (cm)</label>
+            </div>
+
+            <div class="input-group">
+                <input type="number" class="input-field" id="weight" min="20" max="300" step="0.1" placeholder=" ">
+                <label style="color:black;">Weight (kg)</label>
+            </div>
+
+            <button class="analyze-btn" onclick="analyzeWeight()">🔥 ANALYZE MY WEIGHT</button>
+
+            <div class="results" id="results"></div>
+        </div>
+    </div>
+            
+</body>
+
+</html>
