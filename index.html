@@ -10,35 +10,234 @@
     <script src="file.js" defer></script>
 </head>
   <body>
-    <body>
-    <div class="particles" id="particles"></div>
+   <div class="particles" id="particles"></div>
 
-    <div class="container">
-        <div class="floating-card">
-            <h1>FitnessForge</h1>
-            <p class="subtitle">Your Smart Weight Analyzer</p>
+<div class="container">
+  <div class="floating-card">
+    <h1>FitnessForge</h1>
+    <p class="subtitle">Your Smart Weight & Diet Analyzer 🔥</p>
 
-            <div class="input-group">
-                <input type="number" class="input-field" id="age" min="1" max="120" placeholder=" ">
-                <label>Age (years)</label>
-            </div>
-
-            <div class="input-group">
-                <input type="number" class="input-field" id="height" min="50" max="250" placeholder=" ">
-                <label>Height (cm)</label>
-            </div>
-
-            <div class="input-group">
-                <input type="number" class="input-field" id="weight" min="20" max="300" step="0.1" placeholder=" ">
-                <label style="color:black;">Weight (kg)</label>
-            </div>
-
-            <button class="analyze-btn" onclick="analyzeWeight()">🔥 ANALYZE MY WEIGHT</button>
-
-            <div class="results" id="results"></div>
-        </div>
+    <div class="input-group">
+      <label>Age (years)</label>
+      <input type="number" class="input-field" id="age" min="1" max="120" placeholder="e.g. 24">
     </div>
-            
-</body>
+
+    <div class="input-group">
+      <label>Height (cm)</label>
+      <input type="number" class="input-field" id="height" min="50" max="250" placeholder="e.g. 175">
+    </div>
+
+    <div class="input-group">
+      <label>Weight (kg)</label>
+      <input type="number" class="input-field" id="weight" min="20" max="300" step="0.1" placeholder="e.g. 70">
+    </div>
+
+    <div class="diet-toggle">
+      <button class="diet-btn active" data-diet="veg" onclick="selectDiet('veg')" type="button">🥦 Vegetarian (वेज)</button>
+      <button class="diet-btn" data-diet="nonveg" onclick="selectDiet('nonveg')" type="button">🍗 Non-Vegetarian (नॉन-वेज)</button>
+    </div>
+
+    <button class="analyze-btn" onclick="analyzeWeight()" type="button">🔥 Analyze My Weight</button>
+
+    <!-- ===================== RESULTS ===================== -->
+    <div class="results" id="results">
+
+      <div class="status" id="statusBox"></div>
+
+      <div class="motivation-message" id="msgNormal">
+        💪 <strong>Gazab! Aapka body balance ekdam perfect hai.</strong><br>Bas ise hi maintain rakho. 🔥
+      </div>
+      <div class="motivation-message" id="msgOverweight">
+        💪 <strong>Aap kar sakte ho!</strong><br>Har kadam aapko healthy banayega. Chhote kadmo se badi jeet milegi! 🔥
+      </div>
+      <div class="motivation-message" id="msgUnderweight">
+        🌟 <strong>Aap strong ban rahe ho!</strong><br>Har nutritious bite aapko energy dega. Aapka future bright hai! 💪
+      </div>
+
+
+
+
+
+
+
+      <!-- ---- VEG: Weight Loss ---- -->
+      <div class="rec-group" id="rec-veg-loss">
+        <div class="rec-card diet">
+          <img src="images/VEG Weight Loss FOOD.png" alt="Veg sprouts salad">
+          <div class="rec-text">
+            <div class="rec-title">🥗 Diet for Weight Loss (वेज)</div>
+            <ul class="rec-list">
+              <li>Sprouts <span class="hindi">(अंकुरित मूंग)</span> — high fiber, low calorie</li>
+              <li>Chickpeas <span class="hindi">(चना/छोले)</span> — protein-rich</li>
+              <li>Tofu <span class="hindi">(टोफू)</span> and paneer (low-fat) <span class="hindi">(पनीर)</span></li>
+              <li>Greens: spinach <span class="hindi">(पालक)</span>, broccoli <span class="hindi">(ब्रोकली)</span></li>
+              <li>Cucumber <span class="hindi">(खीरा)</span> and tomato <span class="hindi">(टमाटर)</span> salad</li>
+              <li>Avoid: fried food, sugary drinks, refined flour <span class="hindi">(मैदा)</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="rec-card exercise">
+          <img src="images/VEG Weight Loss exercise.jfif" alt="Sprouts and fruit bowl">
+          <div class="rec-text">
+            <div class="rec-title">💪 Exercises to Burn Fat</div>
+            <ul class="rec-list">
+              <li>Cardio (30–45 min): running, cycling, jump rope</li>
+              <li>Bodyweight circuits: squats, lunges, burpees</li>
+              <li>Core: planks, Russian twists</li>
+              <li>Walk 10,000 steps daily</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+
+
+      <!-- ---- NON-VEG: Weight Loss ---- -->
+      <div class="rec-group" id="rec-nonveg-loss">
+        <div class="rec-card diet">
+          <img src="images/Non-veg weight Loss food.png" alt="Grilled chicken with veggies">
+          <div class="rec-text">
+            <div class="rec-title">🥗 Diet for Weight Loss (नॉन-वेज)</div>
+            <ul class="rec-list">
+              <li>Chicken breast <span class="hindi">(चिकन ब्रेस्ट)</span> — grilled, not fried</li>
+              <li>Eggs <span class="hindi">(अंडे)</span> — boiled, limit yolks if needed</li>
+              <li>Mushrooms <span class="hindi">(मशरूम)</span> and broccoli <span class="hindi">(ब्रोकली)</span></li>
+              <li>Fish <span class="hindi">(मछली)</span> — grilled or steamed</li>
+              <li>Drink 3–4L water daily</li>
+              <li>Avoid: fried chicken, processed meats, mayo-based sauces</li>
+            </ul>
+          </div>
+        </div>
+        <div class="rec-card exercise">
+          <img src="images/Non-veg Weight loss exercise.jfif" alt="Lean protein plate">
+          <div class="rec-text">
+            <div class="rec-title">💪 Exercises to Burn Fat</div>
+            <ul class="rec-list">
+              <li>HIIT (20–30 min): sprints, kettlebell swings</li>
+              <li>Strength training: squats, deadlifts, bench press</li>
+              <li>Compound moves: mountain climbers</li>
+              <li>NEAT: walk 10,000 steps daily</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ---- VEG: Weight Gain ---- -->
+      <div class="rec-group" id="rec-veg-gain">
+        <div class="rec-card diet">
+          <img src="images/veg-Weight Gain food.png" alt="Veg sprouts and fruit bowl">
+          <div class="rec-text">
+            <div class="rec-title">🍎 Foods for Weight Gain (वेज)</div>
+            <ul class="rec-list">
+              <li>Peanuts / peanut butter <span class="hindi">(मूंगफली)</span> — calorie-dense</li>
+              <li>Full-fat paneer <span class="hindi">(पनीर)</span> and dairy <span class="hindi">(दूध)</span></li>
+              <li>Bananas <span class="hindi">(केला)</span> and dry fruits <span class="hindi">(मेवे)</span></li>
+              <li>Rice <span class="hindi">(चावल)</span>, potatoes <span class="hindi">(आलू)</span></li>
+              <li>Sprouts + chickpea salad <span class="hindi">(अंकुरित मूंग और छोले)</span></li>
+              <li>Eat 5–6 meals daily with a calorie surplus</li>
+            </ul>
+          </div>
+        </div>
+        <div class="rec-card exercise">
+          <img src="images/veg-weight Gain exercise.jfif" alt="Balanced salad bowl">
+          <div class="rec-text">
+            <div class="rec-title">🏋️ Exercises for Muscle Gain</div>
+            <ul class="rec-list">
+              <li>Compound lifts (4–5x/week): squats, deadlifts, push-ups</li>
+              <li>Progressive overload weekly</li>
+              <li>Light cardio (1–2 sessions/week)</li>
+              <li>7–9 hours of sleep for recovery</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ---- NON-VEG: Weight Gain ---- -->
+      <div class="rec-group" id="rec-nonveg-gain">
+        <div class="rec-card diet">
+          <img src="images/NON-veg-Weight Gain food.png" alt="Non-veg protein plate">
+          <div class="rec-text">
+            <div class="rec-title">🍗 Foods for Weight Gain (नॉन-वेज)</div>
+            <ul class="rec-list">
+              <li>Eggs <span class="hindi">(अंडे)</span> — whole eggs for calories</li>
+              <li>Chicken thigh <span class="hindi">(चिकन)</span> — slightly fattier cuts okay</li>
+              <li>Bacon/red meat in moderation <span class="hindi">(मांस)</span></li>
+              <li>Whey protein shake + banana + milk</li>
+              <li>Full-fat dairy <span class="hindi">(दूध, पनीर)</span></li>
+              <li>Eat 5–6 meals daily (500+ calorie surplus)</li>
+            </ul>
+          </div>
+        </div>
+        <div class="rec-card exercise">
+          <img src="images/non-Weight Gain exercise.png" alt="Non-veg meal">
+          <div class="rec-text">
+            <div class="rec-title">🏋️ Exercises for Muscle Gain</div>
+            <ul class="rec-list">
+              <li>Compound lifts (4–5x/week): bench press, deadlifts, pull-ups</li>
+              <li>Progressive overload weekly</li>
+              <li>Moderate cardio: 20 min, 1–2x/week</li>
+              <li>Prioritize 7–9 hours sleep</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ---- Maintenance: Veg ---- -->
+      <div class="rec-group" id="rec-veg-normal">
+        <div class="rec-card diet">
+          <img src="images/veg1.jfif" alt="Balanced veg meal">
+          <div class="rec-text">
+            <div class="rec-title">⚖️ Maintain Your Balance (वेज)</div>
+            <ul class="rec-list">
+              <li>Keep a balanced plate: protein, fiber, healthy fats</li>
+              <li>Stay hydrated — 3L water daily <span class="hindi">(पानी)</span></li>
+              <li>Limit processed/sugary foods</li>
+            </ul>
+          </div>
+        </div>
+        <div class="rec-card exercise">
+          <img src="images/fit-veg.png" alt="Fresh salad">
+          <div class="rec-text">
+            <div class="rec-title">💪 Stay Active</div>
+            <ul class="rec-list">
+              <li>Mix of strength training and cardio, 4–5x/week</li>
+              <li>Stretch/mobility work daily</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- ---- Maintenance: Non-Veg ---- -->
+      <div class="rec-group" id="rec-nonveg-normal">
+        <div class="rec-card diet">
+          <img src="images/Balance-body non-veg food.png" alt="Balanced non-veg meal">
+          <div class="rec-text">
+            <div class="rec-title">⚖️ Maintain Your Balance</div>
+            <ul class="rec-list">
+              <li>Keep a balanced plate: protein, fiber, healthy fats</li>
+              <li>Stay hydrated — 3L water daily <span class="hindi">(पानी)</span></li>
+              <li>Limit processed/sugary foods</li>
+            </ul>
+          </div>
+        </div>
+        <div class="rec-card exercise">
+          <img src="images/fit non-veg.png" alt="Lean protein plate">
+          <div class="rec-text">
+            <div class="rec-title">💪 Stay Active</div>
+            <ul class="rec-list">
+              <li>Mix of strength training and cardio, 4–5x/week</li>
+              <li>Stretch/mobility work daily</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <!-- ===================== END RESULTS ===================== -->
+
+  </div>
+</div>
+  </body>
 
 </html>
