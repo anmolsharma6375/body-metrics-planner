@@ -56,3 +56,74 @@
     0%, 100% { transform: translateY(0px); }
     50% { transform: translateY(-14px); }
   }
+
+
+
+  h1 {
+    text-align: center;
+    font-size: clamp(2rem, 5vw, 3rem);
+    background: linear-gradient(45deg, #38ef7d, #4facfe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 8px;
+  }
+
+  .subtitle {
+    text-align: center;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 30px;
+    font-weight: 300;
+  }
+
+  .input-group { position: relative; margin-bottom: 26px; }
+
+  .input-group label {
+    position: absolute;
+    top: -12px; left: 16px;
+    background: rgba(20, 20, 20, 0.9);
+    padding: 4px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: #fff;
+    z-index: 10;
+  }
+
+  .input-field {
+    width: 100%;
+    padding: 20px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    font-size: 1.05rem;
+  }
+
+  .input-field::placeholder { color: rgba(255,255,255,0.4); }
+
+  .input-field:focus {
+    outline: none;
+    border-color: #38ef7d;
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  .diet-toggle {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 26px;
+  }
+
+  .diet-btn {
+    flex: 1;
+    padding: 16px;
+    border-radius: 16px;
+    border: 2px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.08);
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center;
+  }
